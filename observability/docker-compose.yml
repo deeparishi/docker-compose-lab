@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
 
   prometheus:
@@ -6,7 +8,7 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - "D:/Learning/Backend/Microservice/Food Delivery App/Food App Backend/observability/provisioning/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - ./provisioning/prometheus.yml:/etc/prometheus/prometheus.yml
 
   grafana:
     image: grafana/grafana:9.5.2
@@ -15,7 +17,7 @@ services:
       - "3005:3000"
     restart: unless-stopped
     volumes:
-      - "D:/Learning/Backend/Microservice/Food Delivery App/Food App Backend/observability/grafana/datasources:/etc/grafana/provisioning/datasources"
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
 
   loki:
     image: grafana/loki:latest
