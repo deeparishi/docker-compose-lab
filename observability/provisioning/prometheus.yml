@@ -30,3 +30,9 @@ scrape_configs:
       - targets: [ 'host.docker.internal:8004' ]
         labels:
           application: 'Payment Service'
+  - job_name: 'config-server'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:8078' ]
+        labels:
+          application: 'Config Server'
